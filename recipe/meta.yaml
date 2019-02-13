@@ -26,16 +26,16 @@ requirements:
     - pip
     - setuptools
     - astropy >=2.1
-    - cython >=0.27
-    - numpy >=1.11
-    - scipy >=1.0
+    - cython
+    - numpy
+    - scipy
 
   run:
     - python
     - openmp 4.0.*  # [osx]
     - astropy >=2.1
     - {{ pin_compatible('numpy') }}
-    - scipy >=1.0
+    - scipy
     - h5py
     - matplotlib >=2.0
     - pyproj
