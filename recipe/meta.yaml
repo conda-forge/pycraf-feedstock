@@ -27,7 +27,7 @@ requirements:
     - setuptools
     - astropy >=2.0.11
     - cython
-    - numpy
+    - numpy 1.11.*
     - scipy
 
   run:
