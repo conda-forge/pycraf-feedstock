@@ -1,35 +1,29 @@
-{% set name = "pycraf" %}
 {% set version = "0.25.8" %}
-{% set sha256 = "ed3f2a5f1d9492b9dda2634a41341c133e09965d2ef09017b4cd6e98d738a33a" %}
 
 package:
-  name: {{ name|lower }}
+  name: pycraf
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/p/pycraf/pycraf-{{ version }}.tar.gz
+  sha256: ed3f2a5f1d9492b9dda2634a41341c133e09965d2ef09017b4cd6e98d738a33a
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py27]
-  script: "{{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt --offline"
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   build:
     - {{ compiler('cxx') }}
-  
   host:
-    - openmp 4.0.*  # [osx]
     - python
     - pip
-    - setuptools
-    - astropy >=2.0.11
+    - openmp 4.0.*  # [osx]
+    - numpy
     - cython
-    - numpy 1.11.*
+    - astropy >=2.0.11
     - scipy
-
   run:
     - python
     - openmp 4.0.*  # [osx]
@@ -37,7 +31,7 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - scipy
     - h5py
-    - matplotlib >=2.0
+    - matplotlib-base >=2.0
     - pyproj
 
 test:
