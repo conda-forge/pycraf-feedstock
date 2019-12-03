@@ -22,12 +22,12 @@ requirements:
     - openmp 4.0.*  # [osx]
     - numpy
     - cython
-    - astropy >=2.0.11
+    - astropy
     - scipy
   run:
     - python
     - openmp 4.0.*  # [osx]
-    - astropy >=2.0.11
+    - astropy
     - {{ pin_compatible('numpy') }}
     - scipy
     - h5py
