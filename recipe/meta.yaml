@@ -40,7 +40,7 @@ requirements:
     - matplotlib >=2.0
     - pyproj
     - pytest
-    - sgp4 < 2.0
+    - sgp4 <2.0
 
 test:
   imports:
