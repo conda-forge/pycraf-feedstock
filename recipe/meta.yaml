@@ -39,6 +39,8 @@ requirements:
     - h5py
     - matplotlib >=2.0
     - pyproj
+    - pytest
+    - sgp4 < 2.0
 
 test:
   imports:
