@@ -1,6 +1,6 @@
 {% set name = "pycraf" %}
-{% set version = "1.0.1" %}
-{% set sha256 = "2699ae115976562afc85f87938e8e2f164a849641832e26b8c3b55f867686216" %}
+{% set version = "1.0.2" %}
+{% set sha256 = "87722a8e2876e08b0244f79537c0a2f3ae2c8583e94fe2bc5a2d9330ee80bd67" %}
 
 package:
   name: {{ name|lower }}
@@ -13,13 +13,13 @@ source:
 
 build:
   number: 0
-  skip: True  # [py27]
-  script: "{{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt --offline"
+  skip: true  # [py27]
+  script: {{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt --offline
 
 requirements:
   build:
     - {{ compiler('cxx') }}
-  
+
   host:
     - openmp 4.0.*  # [osx]
     - python
@@ -54,17 +54,16 @@ test:
     - pycraf.mc
     - pycraf.utils
 
-  commands:
-     python -c "import pycraf; pycraf.test()"
+  commands: python -c "import pycraf; pycraf.test()"
 
 about:
   home: https://github.com/bwinkel/pycraf
   license: GPL-3.0
   license_family: GPL
   license_file: licenses/README.rst
-  summary: 'A Python package for spectrum-management compatibility studies'
+  summary: A Python package for spectrum-management compatibility studies
   description: |
-      The pycraf package provides functions and procedures for various tasks in spectrum-management compatibility studies.
+    The pycraf package provides functions and procedures for various tasks in spectrum-management compatibility studies.
   dev_url: https://github.com/bwinkel/pycraf
 
 extra:
