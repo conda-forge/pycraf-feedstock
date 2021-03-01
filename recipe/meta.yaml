@@ -13,7 +13,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py27]
+  skip: true  # [py27 or (osx and py>=38)]
   script: {{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt --offline
 
 requirements:
