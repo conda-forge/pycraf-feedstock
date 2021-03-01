@@ -1,6 +1,6 @@
 {% set name = "pycraf" %}
-{% set version = "1.0.3" %}
-{% set sha256 = "182125151bde3afa12ff6c80e7b7ab76fbe497ef6f6b6bccb87c1f51f627dfca" %}
+{% set version = "1.0.4" %}
+{% set sha256 = "972c2a0a001cda9ad106a6d6bd4168fdea0bd7696a1364c9751656920e339211" %}
 
 package:
   name: {{ name|lower }}
