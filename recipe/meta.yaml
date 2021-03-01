@@ -44,7 +44,7 @@ requirements:
     - pytest-astropy
     - pytest-doctestplus
     - pytest-qt
-    - sgp4 <2.0
+    - sgp4
 
 test:
   imports:
