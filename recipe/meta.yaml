@@ -1,6 +1,6 @@
 {% set name = "pycraf" %}
-{% set version = "1.0.3" %}
-{% set sha256 = "182125151bde3afa12ff6c80e7b7ab76fbe497ef6f6b6bccb87c1f51f627dfca" %}
+{% set version = "1.0.4" %}
+{% set sha256 = "972c2a0a001cda9ad106a6d6bd4168fdea0bd7696a1364c9751656920e339211" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py27]
+  skip: true  # [py27 or (osx and py>=38)]
   script: {{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt --offline
 
 requirements:
@@ -27,7 +27,7 @@ requirements:
     - setuptools
     - astropy
     - cython
-    - numpy 1.11.*
+    - numpy
     - scipy
 
   run:
@@ -38,13 +38,13 @@ requirements:
     - scipy
     - h5py
     - matplotlib >=2.0
-    - pyproj
+    - pyproj <3.0
     - pyqt
     - pytest
     - pytest-astropy
     - pytest-doctestplus
     - pytest-qt
-    - sgp4 <2.0
+    - sgp4
 
 test:
   imports:
