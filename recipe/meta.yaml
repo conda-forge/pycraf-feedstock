@@ -1,6 +1,6 @@
 {% set name = "pycraf" %}
-{% set version = "1.1.0" %}
-{% set sha256 = "191b3d21af91fba3e1a183d3372294c8d04ab2e76b31510fbdbd7ec40aae0b73" %}
+{% set version = "1.1.1" %}
+{% set sha256 = "cdf5c2564ecea07e3242f5422a64ccc31a6a4d80f070ecc2d3abc804f8b737c5" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py27 or (osx and py>=38)]
+  skip: true  # [py<=36 or (osx and py>=38)]
   script: {{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt --offline
 
 requirements:
