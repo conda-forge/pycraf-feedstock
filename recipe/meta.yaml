@@ -21,14 +21,17 @@ requirements:
     - {{ compiler('cxx') }}
 
   host:
-    - openmp 4.0.*  # [osx]
+    - compilers  # [osx]
+    - llvm-openmp  # [osx]
     - python
     - pip
     - setuptools
+    - setuptools_scm
     - astropy
     - cython
     - numpy
     - scipy
+    - extension-helpers
 
   run:
     - python
