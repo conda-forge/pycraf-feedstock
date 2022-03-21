@@ -1,6 +1,6 @@
 {% set name = "pycraf" %}
-{% set version = "1.1.1" %}
-{% set sha256 = "cdf5c2564ecea07e3242f5422a64ccc31a6a4d80f070ecc2d3abc804f8b737c5" %}
+{% set version = "2.0.0" %}
+{% set sha256 = "2346d41581fc11f64b3a83d234fdcaea44c918e041383410b61e2da0c87be808" %}
 
 package:
   name: {{ name|lower }}
@@ -13,8 +13,8 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<=36 or (osx and py>=38)]
-  script: {{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt --offline
+  skip: true  # [py<=36]
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   build:
@@ -32,19 +32,20 @@ requirements:
 
   run:
     - python
-    - openmp 4.0.*  # [osx]
+    - compilers  # [osx]
+    - llvm-openmp  # [osx]
     - astropy
     - {{ pin_compatible('numpy') }}
     - scipy
     - h5py
-    - matplotlib >=2.0
-    - pyproj <3.0
-    - pyqt
+    - matplotlib >=3.3
+    - pyproj >2.6
     - pytest
     - pytest-astropy
+    - pytest-remotedata
     - pytest-doctestplus
-    - pytest-qt
-    - sgp4
+    - rasterio
+    - sgp4 >=2
 
 test:
   imports:
