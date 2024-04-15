@@ -28,7 +28,7 @@ requirements:
     - setuptools
     - setuptools_scm
     - astropy
-    - cython
+    - cython >=3
     - numpy
     - scipy
     - extension-helpers
@@ -41,7 +41,7 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - scipy
     - h5py
-    - matplotlib >=3.3
+    - matplotlib-base >=3.3
     - pyproj >2.6
     - pytest
     - pytest-astropy
