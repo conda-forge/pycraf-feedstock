@@ -1,6 +1,6 @@
 {% set name = "pycraf" %}
-{% set version = "2.0.2" %}
-{% set sha256 = "1701461c36f984160746ff28cabfd12e87a0f5dd56e71ed94bef50b19d76302e" %}
+{% set version = "2.1.0" %}
+{% set sha256 = "daa3c7cb63a24d0e2ec814e71d58ab7e3be65985d4dd23593faf6c646b2119c1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,12 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 2
-  skip: true  # [py<=37]
+  number: 0
+  skip: true  # [py<=39]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -42,6 +42,7 @@ requirements:
     - scipy
     - h5py
     - matplotlib-base >=3.3
+    - numpy
     - pyproj >2.6
     - pytest
     - pytest-astropy
